@@ -2859,6 +2859,7 @@ func (source *ApplicationSource) ExplicitType() (*ApplicationSourceType, error) 
 	return &appType, nil
 }
 
+/* REMOVED
 // Equals compares two instances of ApplicationDestination and returns true if instances are equal.
 func (dest ApplicationDestination) Equals(other ApplicationDestination) bool {
 	// ignore destination cluster name and isServerInferred fields during comparison
@@ -2875,7 +2876,6 @@ func (dest ApplicationDestination) Equals(other ApplicationDestination) bool {
 	return reflect.DeepEqual(dest, other)
 }
 
-/* REMOVED
 // GetProject returns the application's project. This is preferred over spec.Project which may be empty
 func (spec ApplicationSpec) GetProject() string {
 	if spec.Project == "" {
@@ -3104,6 +3104,7 @@ func (r ResourceDiff) TargetObject() (*unstructured.Unstructured, error) {
 	return UnmarshalToUnstructured(r.TargetState)
 }
 
+/* REMOVED
 // SetInferredServer sets the Server field of the destination. See IsServerInferred() for details.
 func (d *ApplicationDestination) SetInferredServer(server string) {
 
@@ -3121,7 +3122,6 @@ func (d *ApplicationDestination) IsServerInferred() bool {
 	return d.isServerInferred
 }
 
-/* REMOVED
 // MarshalJSON marshals an application destination to JSON format
 func (d *ApplicationDestination) MarshalJSON() ([]byte, error) {
 	type Alias ApplicationDestination

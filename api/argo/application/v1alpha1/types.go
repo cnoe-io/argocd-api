@@ -919,9 +919,11 @@ type ApplicationDestination struct {
 	Namespace string `json:"namespace,omitempty" protobuf:"bytes,2,opt,name=namespace"`
 	// Name is an alternate way of specifying the target cluster by its symbolic name. This must be set if Server is not set.
 	Name string `json:"name,omitempty" protobuf:"bytes,3,opt,name=name"`
-
-	// nolint:govet
-	isServerInferred bool `json:"-"`
+	/*
+		 REMOVED
+			// nolint:govet
+			isServerInferred bool `json:"-"`
+	*/
 }
 
 type ResourceHealthLocation string
@@ -2857,6 +2859,7 @@ func (source *ApplicationSource) ExplicitType() (*ApplicationSourceType, error) 
 	return &appType, nil
 }
 
+/* REMOVED
 // Equals compares two instances of ApplicationDestination and returns true if instances are equal.
 func (dest ApplicationDestination) Equals(other ApplicationDestination) bool {
 	// ignore destination cluster name and isServerInferred fields during comparison
@@ -2873,7 +2876,6 @@ func (dest ApplicationDestination) Equals(other ApplicationDestination) bool {
 	return reflect.DeepEqual(dest, other)
 }
 
-/* REMOVED
 // GetProject returns the application's project. This is preferred over spec.Project which may be empty
 func (spec ApplicationSpec) GetProject() string {
 	if spec.Project == "" {
@@ -3102,6 +3104,7 @@ func (r ResourceDiff) TargetObject() (*unstructured.Unstructured, error) {
 	return UnmarshalToUnstructured(r.TargetState)
 }
 
+/* REMOVED
 // SetInferredServer sets the Server field of the destination. See IsServerInferred() for details.
 func (d *ApplicationDestination) SetInferredServer(server string) {
 
@@ -3119,7 +3122,6 @@ func (d *ApplicationDestination) IsServerInferred() bool {
 	return d.isServerInferred
 }
 
-/* REMOVED
 // MarshalJSON marshals an application destination to JSON format
 func (d *ApplicationDestination) MarshalJSON() ([]byte, error) {
 	type Alias ApplicationDestination

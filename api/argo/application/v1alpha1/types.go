@@ -1551,6 +1551,7 @@ type InfoItem struct {
 
 // ResourceNetworkingInfo holds networking resource related information
 // TODO: describe members of this type
+// +kubebuilder:object:generate=true
 type ResourceNetworkingInfo struct {
 	TargetLabels map[string]string        `json:"targetLabels,omitempty" protobuf:"bytes,1,opt,name=targetLabels"`
 	TargetRefs   []ResourceRef            `json:"targetRefs,omitempty" protobuf:"bytes,2,opt,name=targetRefs"`
@@ -1672,6 +1673,7 @@ type ResourceRef struct {
 
 // ResourceNode contains information about live resource and its children
 // TODO: describe members of this type
+// +kubebuilder:object:generate=true
 type ResourceNode struct {
 	ResourceRef     `json:",inline" protobuf:"bytes,1,opt,name=resourceRef"`
 	ParentRefs      []ResourceRef           `json:"parentRefs,omitempty" protobuf:"bytes,2,opt,name=parentRefs"`
